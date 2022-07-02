@@ -13,7 +13,7 @@ struct geekbraryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FranshisesListContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
