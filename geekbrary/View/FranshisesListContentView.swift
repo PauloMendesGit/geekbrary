@@ -15,7 +15,9 @@ struct FranshisesListContentView: View {
         NavigationView {
             List {
                 ForEach(franchiseList, id: \.self) { franchise in
-                    NavigationLink(destination: FranchiseDetailsContentView()) {
+                    ZStack {
+                        NavigationLink(destination: FranchiseDetailsContentView()) {
+                        }.hidden()
                         ZStack {
                             Image("PokemonCellBackground")
                                 .resizable()
