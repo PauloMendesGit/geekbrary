@@ -16,8 +16,6 @@ struct PokemonHomeView: View {
     @State private var showPokemonDetailsView = false
     @State private var showPokedexDetailsView = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @Binding var isActive: Bool
-    
     
     var body: some View {
         VStack(spacing: 16) {
@@ -45,18 +43,18 @@ struct PokemonHomeView: View {
         VStack(spacing: 30) {
             Spacer()
             HStack(alignment: .center, spacing: 20) {
-                CategoryButton(title: "Pokemons", destination: PokemonDetailsView(title: "Pokemons", viewModel: viewModel, isActive: .constant(false)))
-                CategoryButton(title: "Pokedexes", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel, isActive: .constant(false)))
+                CategoryButton(title: "Pokemons", destination: PokemonDetailsView(title: "Pokemons", viewModel: viewModel))
+                CategoryButton(title: "Pokedexes", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
             }
             
             HStack(alignment: .center, spacing: 20) {
-                CategoryButton(title: "Abilities", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel, isActive: .constant(false)))
-                CategoryButton(title: "Moves", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel, isActive: .constant(false)))
+                CategoryButton(title: "Abilities", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
+                CategoryButton(title: "Moves", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
             }
             
             HStack(alignment: .center, spacing: 20) {
-                CategoryButton(title: "Types",  destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel, isActive: .constant(false)))
-                CategoryButton(title: "Berry", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel, isActive: .constant(false)))
+                CategoryButton(title: "Types",  destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
+                CategoryButton(title: "Berry", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
             }
             Spacer()
         }
@@ -68,18 +66,21 @@ struct CategoryButton<Destination: View>: View {
     var destination: Destination
     
     var body: some View {
-        VStack {
-            NavigationStack {
-                NavigationLink(title, destination: destination)
-                    .frame(width: 200)
+        NavigationStack {
+            GeometryReader { geometry in
+                NavigationLink(destination: destination) {
+                    Text(title)
+                        .font(.title2)
+                        .frame(width: geometry.size.width, height: geometry.size.width)
+                }
             }
-        }
+        }.frame(width: 300, height: 100)
     }
 }
 
 struct PokemonHomeView_Previews: PreviewProvider {
     static var previews: some View {
         let dummyData = FranchiseProperties.pokemon
-        PokemonHomeView(franchise: dummyData, isActive: .constant(false))
+        PokemonHomeView(franchise: dummyData)
     }
 }

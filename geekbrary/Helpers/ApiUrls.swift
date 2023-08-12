@@ -51,9 +51,9 @@ enum FranchiseProperties {
     func detailsPage() -> some View { // change `var` to `func` and specify the return type as `some View`
         switch self {
         case .pokemon:
-            return PokemonHomeView(franchise: self, isActive: .constant(false)) // use `PokemonHomeView` for Pokemon case
+            return PokemonHomeView(franchise: self) // use `PokemonHomeView` for Pokemon case
         case .dragonball:
-            return PokemonHomeView(franchise: self, isActive: .constant(false)) // use `DragonballHomeView` for Dragonball case
+            return PokemonHomeView(franchise: self) // use `DragonballHomeView` for Dragonball case
         }
     }
 }

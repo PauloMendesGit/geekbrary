@@ -12,7 +12,6 @@ struct PokemonDetailsView: View {
     
     var viewModel = PokemonHomeViewModel()
     @Environment(\.dismiss) var dismiss
-    @Binding var isActive: Bool
 
     @Environment(\.presentationMode) var presentationMode
 
@@ -69,7 +68,6 @@ struct PokemonDetailsView: View {
     private var backButton: some View {
         Button(action: {
             self.dismiss()
-            isActive = false // Navigate back to SecondView
         }) {
             Image(systemName: "chevron.left")
                 .foregroundColor(.blue)
