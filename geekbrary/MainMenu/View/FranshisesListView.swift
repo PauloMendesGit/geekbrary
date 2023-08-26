@@ -12,21 +12,15 @@ struct FranshisesListView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.apiEndpoints, id: \.self) { franchise in
-                ZStack {
-                    NavigationLink(destination: franchise.detailsPage())
-                    {}
-                    Image(franchise.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .opacity(0.6)
-                    Text(franchise.name)
-                        .bold()
-                        .foregroundColor(.black)
-                        .textCase(.uppercase)
-                        .font(.largeTitle)
-                }.aspectRatio(contentMode: .fill)
-            }
+            List(viewModel.franchises, id: \.self) { franchise in
+                NavigationLink(destination: franchise.detailView)
+                {}
+                Text(franchise.name)
+                    .bold()
+                    .foregroundColor(.black)
+                    .textCase(.uppercase)
+                    .font(.largeTitle)
+            }.aspectRatio(contentMode: .fill)
         }.navigationBarItems(leading:
                                 Button(action: {
             // Custom back button action

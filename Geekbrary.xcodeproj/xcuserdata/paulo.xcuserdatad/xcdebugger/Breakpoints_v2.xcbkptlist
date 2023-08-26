@@ -3,4 +3,69 @@
    uuid = "0C3034C5-0DE4-414C-B017-F1F09DC457AD"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C248D23-EC33-4B25-838C-3A04CC859100"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "geekbrary/View/FranshisesListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "3C248D23-EC33-4B25-838C-3A04CC859100 - 92d6c3034451356"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Geekbrary.FranshisesListView.body.getter : some"
+                  moduleName = "Geekbrary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulo/Development/iOS/geekbrary/geekbrary/View/FranshisesListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "656">
+               </Location>
+               <Location
+                  uuid = "3C248D23-EC33-4B25-838C-3A04CC859100 - 2b28a3268cd638a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.aspectRatio(_: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, contentMode: SwiftUI.ContentMode) -&gt; some&gt;&gt;.0 in Geekbrary.FranshisesListView.body.getter : some"
+                  moduleName = "Geekbrary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulo/Development/iOS/geekbrary/geekbrary/View/FranshisesListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "612">
+               </Location>
+               <Location
+                  uuid = "3C248D23-EC33-4B25-838C-3A04CC859100 - 92d6c3034451356"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Geekbrary.FranshisesListView.body.getter : some"
+                  moduleName = "Geekbrary"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulo/Development/iOS/geekbrary/geekbrary/View/FranshisesListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "604">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

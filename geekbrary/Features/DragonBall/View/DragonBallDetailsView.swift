@@ -1,24 +1,24 @@
 //
-//  PokemonDetailsView.swift
-//  geekbrary
+//  DragonBallDetailsView.swift
+//  Geekbrary
 //
-//  Created by Paulo Mendes on 17/06/2023.
+//  Created by Paulo Mendes on 22/08/2023.
 //
 
 import SwiftUI
+import Combine
 
-struct PokemonDetailsView: View {
+struct DragonBallDetailsView: View {
     var title: String
     
-    var viewModel = PokemonHomeViewModel()
     @Environment(\.dismiss) var dismiss
-
+    
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
         VStack(spacing: 30) {
             Spacer()
-            
+            Text(title)
             HStack(alignment: .center, spacing: 20) {
                 Button(action: {
                     // Add your action for the first button here

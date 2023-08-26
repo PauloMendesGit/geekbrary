@@ -10,7 +10,6 @@ import Combine
 
 struct PokemonHomeView: View {
     
-    @State var franchise: FranchiseProperties
     @StateObject var viewModel = PokemonHomeViewModel()
     
     @State private var showPokemonDetailsView = false
@@ -19,7 +18,7 @@ struct PokemonHomeView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            Text(franchise.name)
+            Text(viewModel.title)
                 .font(.custom("", size: 40.0))
                 .fontWeight(.bold)
                 .textCase(.uppercase)
@@ -80,7 +79,6 @@ struct CategoryButton<Destination: View>: View {
 
 struct PokemonHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        let dummyData = FranchiseProperties.pokemon
-        PokemonHomeView(franchise: dummyData)
+        PokemonHomeView()
     }
 }

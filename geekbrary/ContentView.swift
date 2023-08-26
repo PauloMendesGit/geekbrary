@@ -19,8 +19,8 @@ struct ContentView: View {
 
     var body: some View {
         NavigationSplitView {
-            List(viewModel.apiEndpoints, id: \.self) { franchise in
-                    NavigationLink(destination: franchise.detailsPage()){
+            List(viewModel.franchises, id: \.self) { franchise in
+                NavigationLink(destination: franchise.detailView){
                         Text(franchise.name)
                     }
             }
@@ -40,6 +40,9 @@ struct ContentView: View {
                 
                 .padding()
         }
+        .onAppear {
+            viewModel.fetch()
+        }
         .onChange(of: showImmersiveSpace) { _, newValue in
             Task {
                 if newValue {
@@ -49,12 +52,6 @@ struct ContentView: View {
                 }
             }
         }
-    }
-}
-
-struct DetailView: View {
-    var body: some View {
-            Text("DETAIL")
     }
 }
 

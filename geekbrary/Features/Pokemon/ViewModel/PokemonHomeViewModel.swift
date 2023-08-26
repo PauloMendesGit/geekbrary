@@ -7,14 +7,11 @@
 
 import Foundation
 
-enum Section {
-    case pokemon, pokedex
-}
-
 class PokemonHomeViewModel: ObservableObject {
     @Published var pokedexes: [PokedexResults] = []
     @Published var pokemons: [PokemonsResults] = []
     @Published var rating: Int = 3
+    var title = "Pokémon"
     
     var nextPokemons: String?
     var nextPokedexes: String?
@@ -75,6 +72,4 @@ class PokemonHomeViewModel: ObservableObject {
             }
         }
     }
-    
-
 }

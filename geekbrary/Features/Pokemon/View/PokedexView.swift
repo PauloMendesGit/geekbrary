@@ -12,7 +12,5 @@ struct PokedexView: View {
     
     var body: some View {
         Text("Pokedex")
-        
-        
     }
 }

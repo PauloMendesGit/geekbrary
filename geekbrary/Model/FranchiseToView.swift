@@ -12,4 +12,3 @@ struct FranchiseToView: Identifiable {
     var id: Int = 0
     var franchise = Franchise(franchise: FranchiseResponse(name: ""))
 }
-    
