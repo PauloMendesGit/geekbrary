@@ -1,5 +1,5 @@
 //
-//  PokemonHomeModel.swift
+//  PokemonListModel.swift
 //  Geekbrary
 //
 //  Created by Paulo Mendes on 26/08/2023.

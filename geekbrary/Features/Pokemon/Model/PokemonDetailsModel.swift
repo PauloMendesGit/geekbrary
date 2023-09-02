@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct PokedexDetails: Decodable {
-    var name: String
-}
-
 struct PokemonDetails: Decodable {
     var abilities: [Abilities]
     var height: Double

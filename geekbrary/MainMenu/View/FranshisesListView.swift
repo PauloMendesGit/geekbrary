@@ -27,8 +27,7 @@ struct FranshisesListView: View {
         }) {
             Image(systemName: "arrow.backward")
             Text("Back")
-        }
-        )
+        })
     }
 }
 

@@ -42,18 +42,18 @@ struct PokemonHomeView: View {
         VStack(spacing: 30) {
             Spacer()
             HStack(alignment: .center, spacing: 20) {
-                CategoryButton(title: "Pokemons", destination: PokemonDetailsView(title: "Pokemons", viewModel: viewModel))
-                CategoryButton(title: "Pokedexes", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
+                CategoryButton(title: "Pokemons", destination: PokemonListView(title: viewModel.title))
+                CategoryButton(title: "Pokedexes", destination: PokemonHomeView())
             }
             
             HStack(alignment: .center, spacing: 20) {
-                CategoryButton(title: "Abilities", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
-                CategoryButton(title: "Moves", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
+                CategoryButton(title: "Abilities", destination: PokemonHomeView())
+                CategoryButton(title: "Moves", destination: PokemonHomeView())
             }
             
             HStack(alignment: .center, spacing: 20) {
-                CategoryButton(title: "Types",  destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
-                CategoryButton(title: "Berry", destination: PokemonDetailsView(title: "Pokedexes", viewModel: viewModel))
+                CategoryButton(title: "Types",  destination: PokemonHomeView())
+                CategoryButton(title: "Berry", destination: PokemonHomeView())
             }
             Spacer()
         }
