@@ -15,7 +15,6 @@ enum PokemonURLs: String {
 class PokemonAPI {
     
     func loadPokemonData<T: Decodable>(with url: String, typeStruct: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        print("LOADING MORE POKEMONS")
         APIClient().performRequest(for: T.self, with: url) { [weak self] result in
             switch result {
                 case .success(let data):
@@ -25,7 +24,6 @@ class PokemonAPI {
                         }
                     }
                 case .failure(let error):
-                    print(error)
                     completion(.failure(error))
             }
         }

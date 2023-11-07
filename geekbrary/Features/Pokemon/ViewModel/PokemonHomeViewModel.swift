@@ -11,7 +11,7 @@ class PokemonHomeViewModel: ObservableObject {
     @Published var pokedexes: [PokedexResults] = []
     @Published var pokemons: [PokemonsResults] = []
     @Published var rating: Int = 3
-    var title = "Pokémon"
+    var title = "Pokémons"
     
     var nextPokemons: String?
     var nextPokedexes: String?
