@@ -61,24 +61,26 @@ struct PokemonDetailsView: View {
                     }
                     
                     TabView(selection: $selectedTab) {
-                        Text("Stats")
-                            .foregroundColor(.black)
-                            .tag(0)
-                        Text("Moves")
-                            .foregroundColor(.black)
-                            .tag(1)
-                        Text("Abilities")
-                            .foregroundColor(.black)
-                            .tag(2)
-                        Text("Types")
-                            .foregroundColor(.black)
-                            .tag(3)
+                        StatsPage(pokemonStats: pokemon.stats)
+                        MovesPage()
+                        AbilitiesPage()
+                        TypesPage()
                     }
                 }
                 .padding(EdgeInsets(top: geometry.size.height * 0.35, leading: 0, bottom: 0, trailing: 0))
             }
         }
 }
+
+//struct Stats: Decodable, Hashable {
+//    var base_stat: Int
+//    var stat: Stat
+//}
+//
+//struct Stat: Decodable, Hashable {
+//    var name: String
+//    var url: String
+//}
 
 
 struct TabButton: View {
@@ -96,3 +98,111 @@ struct TabButton: View {
     }
 }
 
+struct StatsPage: View {
+    var pokemonStats: [Stats]
+    
+    // Calculate the total sum of stat values
+    var totalStat: Int {
+        pokemonStats.reduce(0) { $0 + $1.base_stat }
+    }
+    
+    var body: some View {
+        List {
+            ForEach(pokemonStats, id: \.self) { stat in
+                StatView(statName: stat.stat.name, statValue: stat.base_stat)
+            }
+            StatView(statName: "Total", statValue: totalStat)
+        }
+        .padding()
+    }
+}
+
+struct MovesPage: View {
+    var body: some View {
+        Text("Moves")
+            .foregroundColor(.black)
+        .tag(1)    }
+}
+
+struct AbilitiesPage: View {
+    var body: some View {
+        Text("Abilities")
+            .foregroundColor(.black)
+        .tag(2)    }
+}
+
+struct TypesPage: View {
+    var body: some View {
+        Text("Types")
+            .foregroundColor(.black)
+        .tag(3)    }
+}
+
+struct StatView: View {
+    let statName: String
+    let statValue: Int
+    
+    var body: some View {
+        HStack {
+            Text("\(statName): \(statValue)")
+                .fontWeight(.bold)
+                .frame(width: 200, alignment: .leading)
+            VStack {
+                Spacer()
+                ProgressBar(value: progressBarValue(for: statName), color: progressBarColor(for: statName))
+                Spacer()
+            }
+        }
+    }
+    
+    private func progressBarColor(for statName: String) -> Color {
+        switch statName {
+            case "hp":
+                return .red
+            case "attack":
+                return .orange
+            case "defense":
+                return .yellow
+            case "special-attack":
+                return .blue
+            case "special-defense":
+                return .green
+            case "speed":
+                return .purple
+            default:
+                return .gray
+        }
+    }
+    
+    private func progressBarValue(for statName: String) -> Double {
+        if statName.uppercased() == "TOTAL" {
+            return Double(statValue) / 780
+        } else {
+            return Double(statValue) / 255
+        }
+    }
+}
+
+
+struct ProgressBar: View {
+    var value: Double
+    var color: Color
+    
+    var body: some View {
+        VStack(alignment: .center) {
+            Spacer()
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .frame(width: geometry.size.width - 20, height: 20)
+                        .opacity(0.3)
+                        .foregroundColor(Color.gray)
+                    
+                    Rectangle()
+                        .frame(width: CGFloat(self.value) * geometry.size.width - 20, height: 20)
+                        .foregroundColor(self.color)
+                }
+            }
+        }
+    }
+}
