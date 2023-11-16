@@ -58,3 +58,4 @@ fastlane/screenshots
 #
 *.cert
 *.mobileprovision
+Geekbrary.xcodeproj/xcuserdata/paulo.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
