@@ -12,11 +12,26 @@ struct PokemonDetails: Decodable, Hashable {
     var name: String
     var abilities: [Abilities]
     var height: Double
-    var moves: [Moves]
+    var moves: [PokemonMove]
     var sprites: Sprites
     var stats: [Stats]
     var types: [Types]
     var weight: Double
+}
+
+extension PokemonDetails: Equatable {
+    static func == (lhs: PokemonDetails, rhs: PokemonDetails) -> Bool {
+        // Compare properties to determine equality
+        return lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.abilities == rhs.abilities &&
+        lhs.height == rhs.height &&
+        lhs.moves == rhs.moves &&
+        lhs.sprites == rhs.sprites &&
+        lhs.stats == rhs.stats &&
+        lhs.types == rhs.types &&
+        lhs.weight == rhs.weight
+    }
 }
 
 struct Abilities: Decodable, Hashable {
@@ -26,15 +41,6 @@ struct Abilities: Decodable, Hashable {
 }
 
 struct Ability: Decodable, Hashable {
-    var name: String
-    var url: String
-}
-
-struct Moves: Decodable, Hashable {
-    var move: Move
-}
-
-struct Move: Decodable, Hashable {
     var name: String
     var url: String
 }
