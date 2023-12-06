@@ -21,6 +21,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcuserstate
+Breakpoints_v2.xcbkptlist
 
 ## Obj-C/Swift specific
 *.hmap

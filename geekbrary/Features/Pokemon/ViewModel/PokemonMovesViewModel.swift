@@ -28,7 +28,6 @@ class PokemonMovesViewModel: ObservableObject {
                     }
                 }
                 dispatchGroup.leave()
-                //   }
             }
         }
         
