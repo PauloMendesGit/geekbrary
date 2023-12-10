@@ -63,7 +63,7 @@ struct PokemonDetailsView: View {
                     TabView(selection: $selectedTab) {
                         PokemonStatsView(pokemonStats: pokemon.stats)
                         PokemonMovesView(pokemonMoves: pokemon.moves)
-                        PokemonAbilitiesView()
+                        PokemonAbilitiesView(pokemonAbilities: pokemon.abilities)
                         PokemonTypesView()
                     }
                 }

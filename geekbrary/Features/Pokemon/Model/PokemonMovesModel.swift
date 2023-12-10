@@ -37,7 +37,7 @@ struct VersionGroupDetails: Decodable, Equatable, Hashable {
 struct MoveDetails: Decodable, Identifiable, Hashable {
     var id: Int
     var accuracy: Int?
-    var effectChance: Int?  // Make it optional
+    var effectChance: Int?
     var effectEntries: [EffectEntries]
     var name: String
     var power: Int?
@@ -60,7 +60,7 @@ struct MoveDetails: Decodable, Identifiable, Hashable {
         
         id = try container.decode(Int.self, forKey: .id)
         accuracy = try? container.decode(Int.self, forKey: .accuracy)
-        effectChance = try? container.decode(Int.self, forKey: .effectChance) // Make it optional
+        effectChance = try? container.decode(Int.self, forKey: .effectChance)
         effectEntries = try container.decode([EffectEntries].self, forKey: .effectEntries)
         name = try container.decode(String.self, forKey: .name)
         power = try? container.decode(Int.self, forKey: .power)

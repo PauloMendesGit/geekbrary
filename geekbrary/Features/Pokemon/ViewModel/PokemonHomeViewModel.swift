@@ -15,11 +15,5 @@ class PokemonHomeViewModel: ObservableObject {
     
     var nextPokemons: String?
     var nextPokedexes: String?
-    
-//    init() {
-//        loadPokedexData(with: FranchiseProperties.pokemon.baseUrl + "pokedex/", typeStruct: PokedexStruct.self)
-//        loadPokemonData(with: FranchiseProperties.pokemon.baseUrl + "pokemon/", typeStruct: PokemonsStruct.self)
-//    }
-    
 
 }

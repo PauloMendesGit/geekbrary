@@ -17,9 +17,7 @@ struct PokemonDetails: Decodable, Hashable {
     var stats: [Stats]
     var types: [Types]
     var weight: Double
-}
-
-extension PokemonDetails: Equatable {
+    
     static func == (lhs: PokemonDetails, rhs: PokemonDetails) -> Bool {
         // Compare properties to determine equality
         return lhs.id == rhs.id &&
@@ -35,14 +33,67 @@ extension PokemonDetails: Equatable {
 }
 
 struct Abilities: Decodable, Hashable {
-    var ability: Ability  // Ability is a nested struct
+    var ability: Ability
     var is_hidden: Bool
-    var slot: Int
 }
 
 struct Ability: Decodable, Hashable {
     var name: String
     var url: String
+}
+
+struct AbilityDetails: Decodable, Hashable, Equatable {
+    let effectChanges: [AbilityEffectChanges]
+    let effectEntries: [AbilityEffectEntry]
+    var pokemon: AbilityPokemonList
+    
+    enum CodingKeys: String, CodingKey {
+        case effectChanges = "effect_changes"
+        case effectEntries = "effect_entries"
+        case pokemon
+    }
+    
+    static func == (lhs: AbilityDetails, rhs: AbilityDetails) -> Bool {
+        return lhs.effectChanges == rhs.effectChanges && lhs.effectEntries == rhs.effectEntries && lhs.pokemon == rhs.pokemon
+    }
+}
+
+struct AbilityEffectChanges: Decodable, Hashable, Equatable {
+    var effectEntries: [AbilityEffectChangesEntry]
+}
+
+struct AbilityEffectChangesEntry: Decodable, Hashable, Equatable {
+    var effect: String
+    var language: AbilityLanguage
+}
+
+struct AbilityLanguage: Decodable, Hashable, Equatable {
+    var name: String
+}
+
+struct AbilityEffectEntry: Decodable, Hashable {
+    var effectEntries: EffectEntry
+    
+    enum CodingKeys: String, CodingKey {
+        case effectEntries = "effect_entries"
+    }
+//
+//    static func == (lhs: AbilityEffectEntry, rhs: AbilityEffectEntry) -> Bool {
+//        return lhs.effectEntries == rhs.effectEntries
+//    }
+}
+
+struct EffectEntry: Decodable, Hashable {
+    var effect: String
+    var language: AbilityLanguage
+}
+
+struct AbilityPokemonList: Decodable, Hashable {
+    var pokemon: PokemonName
+}
+
+struct PokemonName: Decodable, Hashable {
+    var name: String
 }
 
 struct Sprites: Decodable, Hashable {

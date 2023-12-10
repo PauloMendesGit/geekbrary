@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct PokemonAbilitiesView: View {
+    var pokemonAbilities: [Abilities]
+    @StateObject var viewModel = PokemonAbilitiesViewModel()
+    
     var body: some View {
-        Text("Abilities")
-            .foregroundColor(.black)
-        .tag(2)    }
+        List {
+            ForEach(viewModel.abilitiesDetails ?? [], id: \.self) { abilityDetails in
+                HStack {
+                    Text(abilityDetails.ability.name)
+                }
+            }
+        }.tag(2)
+            .onAppear {
+                viewModel.loadAbilitiesDetails(pokemonAbilities: pokemonAbilities) {
+                    
+                }
+            }
+    }
 }
